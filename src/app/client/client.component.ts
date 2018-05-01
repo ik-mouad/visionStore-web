@@ -15,6 +15,7 @@ export class ClientComponent implements OnInit {
   client : Client= new Client;
   createOrEdit : any;
   edit : any;
+  keyword : any;
 
 	constructor (private clientService : ClientService){
 		
