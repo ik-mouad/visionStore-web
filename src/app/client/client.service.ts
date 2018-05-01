@@ -12,7 +12,7 @@ export class ClientService {
 
     constructor(private http: HttpClient) { }
 
-    private clientUrl = 'http://visionstore.herokuapp.com/clients';
+    private clientUrl = 'https://visionstore.herokuapp.com/clients';
 
     public getClient() {
         return this.http.get(this.clientUrl);
