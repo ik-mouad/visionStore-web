@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <body ng-app="">
+    <br>
+    <input class="w3-input w3-btn" placeholder="search" [(ngModel)]="keyword" 
+      (keyup)="searchClient(keyword)" type="search">
+    <button class="w3-btn w3-border " (click)="addClient()">Ajouter un client</button>
+    <br>
+    <div class="w3-container">
+      <table class="w3-table w3-bordered w3-striped">
+        <tr>
+          <th>Nom</th>
+          <th>Prenom</th>
+          <th>Tel</th>
+          <th>Numero Fiche</th>
+          <th>Action</th>
+        </tr>
+        <tr *ngFor="let client of clients">
+          <td>{{ client.nom }}</td>
+          <td>{{ client.prenom }}</td>
+          <td>{{ client.tel }}</td>
+          <td>{{ client.numFiche }}</td>
+          <td>
+            <button class="w3-btn" (click)="editClient(client)">&#9998;</button>
+            <button class="w3-btn" (click)="deleteClient(client)">&#x274C;</button>
+          </td>
+        </tr>
+      </table>
+      <form [hidden]=!createOrEdit>
+        <h3 [hidden]="edit">Créer un client:</h3>
+        <h3 [hidden] ="!edit">Modifier un client:</h3>
+          <label>Nom:</label>
+          <input class="w3-input w3-border" [(ngModel)]="client.nom" type="text" name="client.nom">
+        <br>
+          <label>Prénom:</label>
+          <input class="w3-input w3-border" [(ngModel)]="client.prenom" type="text" name="prenom">
+        <br>
+          <label>Tel:</label>
+          <input class="w3-input w3-border" [(ngModel)]="client.tel" type="number" name="Telephone">
+        <br>
+          <label>Numero Fiche: </label>
+          <input class="w3-input w3-border" [(ngModel)]="client.numFiche" type="number" name="NumeroFiche">
+        <br>
+        <button class="w3-btn w3-green w3-ripple" (click)="enregistrerClient(client)" >&#10004;Enregistrer</button>
+        <button class="w3-btn w3-pink w3-ripple" (click)="annuler()">Annuler</button>
+      </form>
+    </div>
+  </body>
+</html>
