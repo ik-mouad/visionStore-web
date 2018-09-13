@@ -1,6 +1,6 @@
 ﻿export class Achat {
   id: string;
-  DateEntree: string;
+  dateEntree: string;
   marque: string;
   quantite: string;
   refArticle: string;
